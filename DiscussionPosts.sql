@@ -1,0 +1,25 @@
+CREATE TABLE IF NOT EXISTS `DiscussionPosts` (
+  `OrgUnitId` int DEFAULT NULL,
+  `TopicId` bigint DEFAULT NULL,
+  `UserId` int DEFAULT NULL,
+  `PostId` bigint NOT NULL,
+  `ThreadId` bigint DEFAULT NULL,
+  `IsReply` tinyint DEFAULT NULL,
+  `ParentPostId` bigint DEFAULT NULL,
+  `NumReplies` int DEFAULT NULL,
+  `DatePosted` datetime DEFAULT NULL,
+  `IsDeleted` tinyint DEFAULT NULL,
+  `RatingSum` bigint DEFAULT NULL,
+  `NumRatings` bigint DEFAULT NULL,
+  `Score` decimal(19,9) DEFAULT NULL,
+  `LastEditDate` datetime DEFAULT NULL,
+  `SortOrder` int DEFAULT NULL,
+  `Depth` int DEFAULT NULL,
+  `Thread` varchar(400) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `WordCount` int DEFAULT NULL,
+  `AttachmentCount` int DEFAULT NULL,
+  `Version` bigint DEFAULT NULL,
+  UNIQUE KEY `PostId` (`PostId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
