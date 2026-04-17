@@ -1,15 +1,8 @@
-CREATE TABLE IF NOT EXISTS `SCORMActivities` (
-  `ActivityId` varchar(36) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `ScormObjectId` varchar(36) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `ParentActivityId` varchar(36) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `NumChildren` int DEFAULT NULL,
-  `InternalId` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `Title` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `CompletionThreshold` float DEFAULT NULL,
-  `PassingScore` float DEFAULT NULL,
-  `PassingScoreUsed` tinyint DEFAULT NULL,
-  `ScoreMin` float DEFAULT NULL,
-  `ScoreMax` float DEFAULT NULL,
-  `LastModified` datetime DEFAULT NULL,
-  UNIQUE KEY `ActivityId` (`ActivityId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE IF NOT EXISTS SCORMActivities (
+    ActivityId VARCHAR(36) NOT NULL,
+    ScormObjectId VARCHAR(36) NOT NULL,
+    Title VARCHAR(255),
+    ExternalId VARCHAR(255),
+    PRIMARY KEY (ActivityId),
+    CONSTRAINT fk_sa_object FOREIGN KEY (ScormObjectId) REFERENCES SCORMObjects(ScormObjectId)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

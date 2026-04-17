@@ -1,14 +1,9 @@
-CREATE TABLE IF NOT EXISTS `OutcomesScaleDefinition` (
-  `ScaleId` varchar(36) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Name` varchar(1000) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `IsDefault` tinyint DEFAULT NULL,
-  `UsePercentages` tinyint DEFAULT NULL,
-  `CreatedDate` datetime DEFAULT NULL,
-  `CreatedBy` int DEFAULT NULL,
-  `LastModifiedDate` datetime DEFAULT NULL,
-  `LastModifiedBy` int DEFAULT NULL,
-  `IsDeleted` tinyint DEFAULT NULL,
-  `RegistryId` varchar(36) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  UNIQUE KEY `ScaleId` (`ScaleId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
+CREATE TABLE IF NOT EXISTS OutcomesScaleDefinition (
+    ScaleId VARCHAR(36) NOT NULL,
+    ScaleLevelId VARCHAR(36) NOT NULL,
+    Name VARCHAR(128),
+    Color VARCHAR(7),
+    SortOrder INT,
+    IsAchievement TINYINT(1),
+    PRIMARY KEY (ScaleId, ScaleLevelId)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

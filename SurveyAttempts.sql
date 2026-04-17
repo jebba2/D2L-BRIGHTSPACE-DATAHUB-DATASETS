@@ -1,14 +1,11 @@
-CREATE TABLE IF NOT EXISTS `SurveyAttempts` (
-  `AttemptId` bigint NOT NULL,
-  `SurveyId` bigint DEFAULT NULL,
-  `UserId` int DEFAULT NULL,
-  `OrgUnitId` int DEFAULT NULL,
-  `AttemptNumber` int DEFAULT NULL,
-  `TimeStarted` datetime DEFAULT NULL,
-  `TimeCompleted` datetime DEFAULT NULL,
-  `AttemptedFromOrgUnitId` int DEFAULT NULL,
-  `OldAttemptNumber` int DEFAULT NULL,
-  `IsDeleted` tinyint DEFAULT NULL,
-  `Version` bigint DEFAULT NULL,
-  UNIQUE KEY `AttemptId` (`AttemptId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE IF NOT EXISTS SurveyAttempts (
+    AttemptId INT NOT NULL,
+    SurveyId INT NOT NULL,
+    UserId INT,
+    AttemptNumber INT,
+    DateStarted DATETIME(6),
+    DateCompleted DATETIME(6),
+    IsDeleted TINYINT(1),
+    PRIMARY KEY (AttemptId),
+    CONSTRAINT fk_sa_survey FOREIGN KEY (SurveyId) REFERENCES Surveys(SurveyId)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

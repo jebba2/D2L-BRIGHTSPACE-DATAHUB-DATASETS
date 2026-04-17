@@ -1,16 +1,13 @@
-CREATE TABLE IF NOT EXISTS `SCORMVisits` (
-  `VisitId` varchar(36) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `ScormObjectId` varchar(36) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `UserId` int DEFAULT NULL,
-  `OrgUnitId` int DEFAULT NULL,
-  `FirstAccessDate` datetime DEFAULT NULL,
-  `LastAccessDate` datetime DEFAULT NULL,
-  `CompletedDate` datetime DEFAULT NULL,
-  `Completion` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `Success` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `Score` float DEFAULT NULL,
-  `TimeSpent` int DEFAULT NULL,
-  `Progress` float DEFAULT NULL,
-  `LastModified` datetime DEFAULT NULL,
-  UNIQUE KEY `VisitId` (`VisitId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE IF NOT EXISTS SCORMVisits (
+    VisitId VARCHAR(36) NOT NULL,
+    ScormObjectId VARCHAR(36) NOT NULL,
+    UserId INT NOT NULL,
+    FirstAccessDate DATETIME(6),
+    LastAccessDate DATETIME(6),
+    CompletedDate DATETIME(6),
+    CompletionStatus VARCHAR(50),
+    SuccessStatus VARCHAR(50),
+    Score DECIMAL(10,2),
+    PRIMARY KEY (VisitId),
+    CONSTRAINT fk_sv_object FOREIGN KEY (ScormObjectId) REFERENCES SCORMObjects(ScormObjectId)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

@@ -1,11 +1,11 @@
-CREATE TABLE IF NOT EXISTS `SessionHistory` (
-  `SessionId` bigint DEFAULT NULL,
-  `OrgId` int DEFAULT NULL,
-  `UserId` int DEFAULT NULL,
-  `DateStarted` datetime DEFAULT NULL,
-  `DateEnded` datetime DEFAULT NULL,
-  `LastAccessed` datetime DEFAULT NULL,
-  `TimedOut` tinyint DEFAULT NULL,
-  `HistoryID` bigint NOT NULL,
-  UNIQUE KEY `HistoryID` (`HistoryID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE IF NOT EXISTS SessionHistory (
+    SessionId VARCHAR(36) NOT NULL,
+    UserId INT NOT NULL,
+    LoginDate DATETIME(6),
+    LogoutDate DATETIME(6),
+    SessionType VARCHAR(50),
+    IPAddress VARCHAR(45),
+    UserAgent TEXT,
+    PRIMARY KEY (SessionId),
+    INDEX idx_sh_user (UserId)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

@@ -1,18 +1,17 @@
-CREATE TABLE IF NOT EXISTS `OrganizationalUnits` (
-  `OrgUnitId` int NOT NULL,
-  `Organization` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `Type` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `Name` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `Code` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `StartDate` datetime DEFAULT NULL,
-  `EndDate` datetime DEFAULT NULL,
-  `IsActive` tinyint DEFAULT NULL,
-  `CreatedDate` datetime DEFAULT NULL,
-  `IsDeleted` tinyint DEFAULT NULL,
-  `DeletedDate` datetime DEFAULT NULL,
-  `RecycledDate` datetime DEFAULT NULL,
-  `Version` bigint DEFAULT NULL,
-  `OrgUnitTypeId` int DEFAULT NULL,
-  UNIQUE KEY `OrgUnitId` (`OrgUnitId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
+CREATE TABLE IF NOT EXISTS OrganizationalUnits (
+    OrgUnitId INT NOT NULL,
+    Organization VARCHAR(50),
+    Type VARCHAR(50),
+    Name VARCHAR(128),
+    Code VARCHAR(50),
+    StartDate DATETIME(6),
+    EndDate DATETIME(6),
+    IsActive TINYINT(1),
+    CreatedDate DATETIME(6),
+    IsDeleted TINYINT(1),
+    DeletedDate DATETIME(6),
+    RecycledDate DATETIME(6),
+    Version BIGINT,
+    OrgUnitTypeId INT,
+    PRIMARY KEY (OrgUnitId)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

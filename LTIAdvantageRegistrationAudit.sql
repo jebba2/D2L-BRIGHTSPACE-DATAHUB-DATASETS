@@ -1,0 +1,23 @@
+CREATE TABLE IF NOT EXISTS LTIAdvantageRegistrationAudit (
+    Action VARCHAR(10) COMMENT 'Registered, Updated, or Deleted',
+    ClientId VARCHAR(255) NOT NULL,
+    ToolName VARCHAR(200),
+    Domain VARCHAR(2083),
+    RedirectURLs TEXT,
+    KeysetURL VARCHAR(255),
+    LoginURL VARCHAR(255),
+    LTIVersion VARCHAR(12),
+    IsRegistrationEnabled TINYINT(1),
+    SendInstitutionRole TINYINT(1),
+    TargetLinkURI VARCHAR(255),
+    ModifiedBy BIGINT,
+    HasAssignmentAndGradeServices TINYINT(1),
+    HasSubmissionReview TINYINT(1),
+    HasDeepLinking TINYINT(1),
+    HasNamesAndRoleProvisioningServices TINYINT(1),
+    HasActivityItemProfile TINYINT(1),
+    HasPlatformNotificationService TINYINT(1),
+    Timestamp DATETIME NOT NULL,
+    HasAssetProcessor TINYINT(1),
+    PRIMARY KEY (ClientId, Timestamp)
+) CHARACTER SET utf8mb4;

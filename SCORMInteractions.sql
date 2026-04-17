@@ -1,11 +1,13 @@
-CREATE TABLE IF NOT EXISTS `SCORMInteractions` (
-  `InteractionId` varchar(36) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `ActivityId` varchar(36) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `InternalId` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `InteractionType` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `Description` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `Weighting` float DEFAULT NULL,
-  `CorrectResponses` varchar(2000) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `LastModified` datetime DEFAULT NULL,
-  UNIQUE KEY `InteractionId` (`InteractionId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE IF NOT EXISTS SCORMInteractions (
+    InteractionId VARCHAR(36) NOT NULL,
+    AttemptId VARCHAR(36) NOT NULL,
+    ExternalId VARCHAR(255),
+    Type VARCHAR(50),
+    Weight DECIMAL(10,2),
+    LearnerResponse TEXT,
+    Result VARCHAR(50),
+    Latency INT,
+    InteractionDate DATETIME(6),
+    PRIMARY KEY (InteractionId),
+    CONSTRAINT fk_si_attempt FOREIGN KEY (AttemptId) REFERENCES SCORMActivityAttempts(AttemptId)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

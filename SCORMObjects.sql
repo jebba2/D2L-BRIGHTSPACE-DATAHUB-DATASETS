@@ -1,14 +1,11 @@
-CREATE TABLE IF NOT EXISTS `SCORMObjects` (
-  `ScormObjectId` varchar(36) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `OrgUnitId` int DEFAULT NULL,
-  `ContentObjectId` int DEFAULT NULL,
-  `ContentServiceContentId` varchar(36) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `ContentServiceRevisionId` varchar(36) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `ContentServiceTopicId` varchar(36) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `Title` varchar(1000) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `Description` varchar(1000) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `LearningStandard` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `LastModified` datetime DEFAULT NULL,
-  `LastModifiedBy` int DEFAULT NULL,
-  UNIQUE KEY `ScormObjectId` (`ScormObjectId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE IF NOT EXISTS SCORMObjects (
+    ScormObjectId VARCHAR(36) NOT NULL,
+    OrgUnitId INT NOT NULL,
+    Title VARCHAR(255),
+    Description TEXT,
+    Version VARCHAR(50),
+    CreatedDate DATETIME(6),
+    IsDeleted TINYINT(1),
+    PRIMARY KEY (ScormObjectId),
+    INDEX idx_scorm_org (OrgUnitId)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

@@ -1,10 +1,9 @@
-CREATE TABLE IF NOT EXISTS `RubricCriteriaLevels` (
-  `RubricId` bigint NOT NULL,
-  `CriterionId` bigint NOT NULL,
-  `Description` varchar(1000) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `Feedback` varchar(1000) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `Value` decimal(19,9) DEFAULT NULL,
-  `LevelId` bigint NOT NULL,
-  `IsDeleted` tinyint DEFAULT NULL,
-  UNIQUE KEY `RubricId` (`RubricId`,`CriterionId`,`LevelId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE IF NOT EXISTS RubricCriteriaLevels (
+    CriteriaId VARCHAR(36) NOT NULL,
+    LevelId VARCHAR(36) NOT NULL,
+    Description TEXT,
+    Feedback TEXT,
+    PRIMARY KEY (CriteriaId, LevelId),
+    CONSTRAINT fk_rcl_criteria FOREIGN KEY (CriteriaId) REFERENCES RubricCriteria(CriteriaId),
+    CONSTRAINT fk_rcl_level FOREIGN KEY (LevelId) REFERENCES RubricLevels(LevelId)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

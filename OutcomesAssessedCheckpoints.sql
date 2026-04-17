@@ -1,17 +1,13 @@
-CREATE TABLE IF NOT EXISTS `OutcomesAssessedCheckpoints` (
-  `CheckpointId` varchar(36) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `DemonstrationId` varchar(36) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Feedback` varchar(1000) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `ConfigDecayRate` int DEFAULT NULL,
-  `ConfigAggregationMethod` int DEFAULT NULL,
-  `ConfigIncludedActivities` int DEFAULT NULL,
-  `ConfigMultipleAttemptStrategy` int DEFAULT NULL,
-  `ConfigRecentlyAssessedActivityCount` int DEFAULT NULL,
-  `ConfigTieBreaker` int DEFAULT NULL,
-  `LastModifiedDate` datetime DEFAULT NULL,
-  `LastModifiedBy` int DEFAULT NULL,
-  `IsDeleted` tinyint DEFAULT NULL,
-  `HasMetAchievementThreshold` tinyint DEFAULT NULL,
-  UNIQUE KEY `CheckpointId` (`CheckpointId`,`DemonstrationId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
+CREATE TABLE IF NOT EXISTS OutcomesAssessedCheckpoints (
+    CheckpointId VARCHAR(36) NOT NULL,
+    DemonstrationId VARCHAR(36) NOT NULL,
+    OutcomeId VARCHAR(36) NOT NULL,
+    OrgUnitId INT NOT NULL,
+    UserId INT NOT NULL,
+    EvaluatorId INT,
+    ScaleLevelId VARCHAR(36),
+    AssessedDate DATETIME(6),
+    CalculationMethod INT,
+    PRIMARY KEY (CheckpointId, DemonstrationId),
+    INDEX idx_outcome_user (OutcomeId, UserId)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

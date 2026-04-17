@@ -1,17 +1,15 @@
-CREATE TABLE IF NOT EXISTS `Users` (
-  `UserId` int NOT NULL,
-  `UserName` varchar(270) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `OrgDefinedId` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `FirstName` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `MiddleName` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `LastName` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `IsActive` tinyint DEFAULT NULL,
-  `Organization` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `ExternalEmail` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `SignupDate` datetime DEFAULT NULL,
-  `FirstLoginDate` datetime DEFAULT NULL,
-  `Version` bigint DEFAULT NULL,
-  `OrgRoleId` int DEFAULT NULL,
-  `LastAccessed` datetime DEFAULT NULL,
-  UNIQUE KEY `UserId` (`UserId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE IF NOT EXISTS Users (
+    UserId INT NOT NULL,
+    UserName VARCHAR(100) NOT NULL,
+    OrgDefinedId VARCHAR(100),
+    FirstName VARCHAR(128),
+    LastName VARCHAR(128),
+    IsActive TINYINT(1),
+    Email VARCHAR(255),
+    ExternalEmail VARCHAR(255),
+    SignupDate DATETIME(6),
+    Version BIGINT,
+    PRIMARY KEY (UserId),
+    UNIQUE INDEX idx_username (UserName),
+    INDEX idx_orgdefinedid (OrgDefinedId)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
