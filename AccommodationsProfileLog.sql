@@ -1,10 +1,10 @@
-CREATE TABLE IF NOT EXISTS `AccommodationsProfileLog` (
-  `AccommodatedUserId` bigint NOT NULL,
-  `OrgUnitId` bigint NOT NULL,
-  `QuizTimeLimitMultiplier` decimal(5,2) DEFAULT NULL,
-  `QuizTimeLimitExtraTime` int DEFAULT NULL,
-  `QuizControlAlwaysAllowRightClick` tinyint DEFAULT NULL,
-  `ModifiedBy` bigint DEFAULT NULL,
-  `LastModified` datetime NOT NULL,
-  UNIQUE KEY `AccommodatedUserId` (`AccommodatedUserId`,`OrgUnitId`,`LastModified`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE IF NOT EXISTS AccommodationsProfileLog (
+    AccommodatedUserId BIGINT NOT NULL,
+    OrgUnitId BIGINT NOT NULL,
+    QuizTimeLimitMultiplier DECIMAL(5,2),
+    QuizTimeLimitExtraTime INT,
+    QuizControlAlwaysAllowRightClick TINYINT(1),
+    ModifiedBy BIGINT,
+    LastModified DATETIME NOT NULL,
+    PRIMARY KEY (AccommodatedUserId, OrgUnitId, LastModified)
+) CHARACTER SET utf8mb4;

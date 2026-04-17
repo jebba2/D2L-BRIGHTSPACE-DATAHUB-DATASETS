@@ -1,18 +1,20 @@
-CREATE TABLE IF NOT EXISTS `AssignmentSubmissions` (
-  `DropboxId` bigint NOT NULL,
-  `OrgUnitId` int DEFAULT NULL,
-  `SubmitterId` bigint NOT NULL,
-  `SubmitterType` varchar(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `FileSubmissionCount` int DEFAULT NULL,
-  `TotalFileSize` bigint DEFAULT NULL,
-  `FeedbackUserId` int DEFAULT NULL,
-  `FeedbackIsRead` tinyint DEFAULT NULL,
-  `Score` decimal(19,9) DEFAULT NULL,
-  `IsGraded` tinyint DEFAULT NULL,
-  `LastSubmissionDate` datetime DEFAULT NULL,
-  `Feedback` varchar(1000) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `FeedbackLastModified` datetime DEFAULT NULL,
-  `FeedbackReadDate` datetime DEFAULT NULL,
-  `CompletionDate` datetime DEFAULT NULL,
-  UNIQUE KEY `DropboxId` (`DropboxId`,`SubmitterId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE IF NOT EXISTS AssignmentSubmissions (
+    DropboxId BIGINT NOT NULL,
+    OrgUnitId INT NOT NULL,
+    SubmitterId BIGINT NOT NULL,
+    SubmitterType VARCHAR(5) NOT NULL,
+    FileSubmissionCount INT,
+    TotalFileSize BIGINT,
+    FeedbackUserId INT,
+    FeedbackIsRead TINYINT(1) NOT NULL,
+    Score DECIMAL(19, 9),
+    IsGraded TINYINT(1) NOT NULL,
+    LastSubmissionDate DATETIME,
+    Feedback VARCHAR(1000),
+    FeedbackLastModified DATETIME,
+    FeedbackReadDate DATETIME,
+    CompletionDate DATETIME,
+    IsDeleted TINYINT(1) NOT NULL,
+    Version BIGINT NOT NULL,
+    PRIMARY KEY (DropboxId, SubmitterId, SubmitterType)
+) CHARACTER SET utf8mb4;

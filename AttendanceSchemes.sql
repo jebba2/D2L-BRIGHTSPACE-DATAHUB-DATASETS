@@ -1,11 +1,13 @@
-CREATE TABLE IF NOT EXISTS `AttendanceSchemes` (
-  `SchemeId` bigint NOT NULL,
-  `OrgUnitId` int DEFAULT NULL,
-  `SchemeName` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `SchemeSymbolId` bigint NOT NULL,
-  `SymbolName` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `SymbolValue` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `Percentage` decimal(19,9) DEFAULT NULL,
-  `Version` bigint DEFAULT NULL,
-  UNIQUE KEY `SchemeId` (`SchemeId`,`SchemeSymbolId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE IF NOT EXISTS AttendanceSchemes (
+    SchemeId BIGINT NOT NULL,
+    OrgUnitId INT,
+    SchemeName VARCHAR(128),
+    SchemeSymbolId BIGINT NOT NULL,
+    SymbolName VARCHAR(128),
+    SymbolValue VARCHAR(50),
+    Percentage DECIMAL(19, 9),
+    Version BIGINT,
+    DateDeleted DATETIME,
+    DeletedBy INT,
+    PRIMARY KEY (SchemeId, SchemeSymbolId)
+) CHARACTER SET utf8mb4;

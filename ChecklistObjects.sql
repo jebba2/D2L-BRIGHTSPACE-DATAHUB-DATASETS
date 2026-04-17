@@ -1,15 +1,15 @@
-CREATE TABLE IF NOT EXISTS `ChecklistObjects` (
-  `ChecklistId` bigint NOT NULL,
-  `OrgUnitId` int DEFAULT NULL,
-  `Name` varchar(512) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `Description` varchar(1000) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `DescriptionIsHtml` tinyint DEFAULT NULL,
-  `SharedUserId` int DEFAULT NULL,
-  `DisplayInNewWindow` tinyint DEFAULT NULL,
-  `SortOrder` int DEFAULT NULL,
-  `Version` bigint DEFAULT NULL,
-  `ResultId` int DEFAULT NULL,
-  `DateDeleted` datetime DEFAULT NULL,
-  `DeletedBy` int DEFAULT NULL,
-  UNIQUE KEY `ChecklistId` (`ChecklistId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE IF NOT EXISTS ChecklistObjects (
+    ChecklistId BIGINT NOT NULL,
+    OrgUnitId INT NOT NULL,
+    Name VARCHAR(512),
+    Description VARCHAR(1000),
+    DescriptionIsHtml TINYINT(1),
+    SharedUserId INT,
+    DisplayInNewWindow TINYINT(1),
+    SortOrder INT,
+    Version BIGINT,
+    ResultId INT,
+    DateDeleted DATETIME,
+    DeletedBy INT,
+    PRIMARY KEY (ChecklistId)
+) CHARACTER SET utf8mb4;

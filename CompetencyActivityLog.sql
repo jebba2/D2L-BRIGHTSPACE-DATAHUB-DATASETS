@@ -1,9 +1,9 @@
-CREATE TABLE IF NOT EXISTS `CompetencyActivityLog` (
-  `ActivityId` bigint NOT NULL,
-  `ActivityLogId` bigint NOT NULL,
-  `LogTypeId` int DEFAULT NULL,
-  `LogTypeName` varchar(19) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `LogDateTime` datetime DEFAULT NULL,
-  `ModifiedBy` bigint DEFAULT NULL,
-  UNIQUE KEY `ActivityId` (`ActivityId`,`ActivityLogId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE IF NOT EXISTS CompetencyActivityLog (
+    ActivityId BIGINT NOT NULL,
+    ActivityLogId BIGINT NOT NULL,
+    LogTypeId INT,
+    LogTypeName VARCHAR(19),
+    LogDateTime DATETIME,
+    ModifiedBy BIGINT,
+    PRIMARY KEY (ActivityId, ActivityLogId)
+) CHARACTER SET utf8mb4;
