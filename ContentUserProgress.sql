@@ -1,16 +1,16 @@
-CREATE TABLE IF NOT EXISTS `ContentUserProgress` (
-  `ContentObjectId` int NOT NULL,
-  `UserId` int NOT NULL,
-  `CompletedDate` datetime DEFAULT NULL,
-  `LastVisited` datetime DEFAULT NULL,
-  `IsRead` tinyint DEFAULT NULL,
-  `NumRealVisits` int DEFAULT NULL,
-  `NumFakeVisits` int DEFAULT NULL,
-  `TotalTime` bigint DEFAULT NULL,
-  `IsVisited` tinyint DEFAULT NULL,
-  `IsCurrentBookmark` tinyint DEFAULT NULL,
-  `IsSelfAssessComplete` tinyint DEFAULT NULL,
-  `LastModified` datetime DEFAULT NULL,
-  `Version` bigint DEFAULT NULL,
-  UNIQUE KEY `ContentObjectId` (`ContentObjectId`,`UserId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE IF NOT EXISTS ContentUserProgress (
+    ContentObjectId INT NOT NULL,
+    UserId INT NOT NULL,
+    CompletedDate DATETIME COMMENT 'Currently not in use',
+    LastVisited DATETIME,
+    IsRead TINYINT(1),
+    NumRealVisits INT,
+    NumFakeVisits INT,
+    TotalTime BIGINT COMMENT 'Seconds spent in content',
+    IsVisited TINYINT(1),
+    IsCurrentBookmark TINYINT(1),
+    IsSelfAssessComplete TINYINT(1),
+    LastModified DATETIME,
+    Version BIGINT,
+    PRIMARY KEY (ContentObjectId, UserId)
+) CHARACTER SET utf8mb4;

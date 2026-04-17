@@ -1,25 +1,23 @@
-CREATE TABLE IF NOT EXISTS `DiscussionPosts` (
-  `OrgUnitId` int DEFAULT NULL,
-  `TopicId` bigint DEFAULT NULL,
-  `UserId` int DEFAULT NULL,
-  `PostId` bigint NOT NULL,
-  `ThreadId` bigint DEFAULT NULL,
-  `IsReply` tinyint DEFAULT NULL,
-  `ParentPostId` bigint DEFAULT NULL,
-  `NumReplies` int DEFAULT NULL,
-  `DatePosted` datetime DEFAULT NULL,
-  `IsDeleted` tinyint DEFAULT NULL,
-  `RatingSum` bigint DEFAULT NULL,
-  `NumRatings` bigint DEFAULT NULL,
-  `Score` decimal(19,9) DEFAULT NULL,
-  `LastEditDate` datetime DEFAULT NULL,
-  `SortOrder` int DEFAULT NULL,
-  `Depth` int DEFAULT NULL,
-  `Thread` varchar(400) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `WordCount` int DEFAULT NULL,
-  `AttachmentCount` int DEFAULT NULL,
-  `Version` bigint DEFAULT NULL,
-  UNIQUE KEY `PostId` (`PostId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-
+CREATE TABLE IF NOT EXISTS DiscussionPosts (
+    PostId BIGINT NOT NULL,
+    TopicId BIGINT NOT NULL,
+    UserId INT,
+    OrgUnitId INT,
+    ThreadId BIGINT,
+    Thread VARCHAR(400),
+    IsReply TINYINT(1),
+    ParentPostId BIGINT,
+    NumReplies INT,
+    DatePosted DATETIME NOT NULL,
+    IsDeleted TINYINT(1),
+    RatingSum BIGINT,
+    NumRatings BIGINT,
+    Score DECIMAL(19, 9),
+    LastEditDate DATETIME,
+    SortOrder INT,
+    Depth INT,
+    WordCount INT,
+    AttachmentCount INT,
+    Version BIGINT,
+    PRIMARY KEY (PostId)
+) CHARACTER SET utf8mb4;

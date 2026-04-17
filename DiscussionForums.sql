@@ -1,21 +1,20 @@
-CREATE TABLE IF NOT EXISTS `DiscussionForums` (
-  `OrgUnitId` int DEFAULT NULL,
-  `ForumId` bigint NOT NULL,
-  `Name` varchar(400) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `Description` varchar(1000) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `MustPostToParticipate` tinyint DEFAULT NULL,
-  `AllowAnon` tinyint DEFAULT NULL,
-  `IsHidden` tinyint DEFAULT NULL,
-  `RequiresApproval` tinyint DEFAULT NULL,
-  `SortOrder` int DEFAULT NULL,
-  `IsDeleted` tinyint DEFAULT NULL,
-  `DeletedDate` datetime DEFAULT NULL,
-  `DeletedByUserId` int DEFAULT NULL,
-  `ResultId` int DEFAULT NULL,
-  `StartDate` datetime DEFAULT NULL,
-  `StartDateAvailabilityType` smallint DEFAULT NULL,
-  `EndDate` datetime DEFAULT NULL,
-  `EndDateAvailabilityType` smallint DEFAULT NULL,
-  UNIQUE KEY `ForumId` (`ForumId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
+CREATE TABLE IF NOT EXISTS DiscussionForums (
+    ForumId BIGINT NOT NULL,
+    OrgUnitId INT,
+    Name VARCHAR(400),
+    Description VARCHAR(1000),
+    MustPostToParticipate TINYINT(1),
+    AllowAnon TINYINT(1),
+    IsHidden TINYINT(1),
+    RequiresApproval TINYINT(1),
+    SortOrder INT,
+    IsDeleted TINYINT(1),
+    DeletedDate DATETIME,
+    DeletedByUserId INT,
+    ResultId INT,
+    StartDate DATETIME,
+    StartDateAvailabilityType SMALLINT COMMENT '0=AccessRestricted, 1=SubmissionRestricted, 2=Hidden',
+    EndDate DATETIME,
+    EndDateAvailabilityType SMALLINT,
+    PRIMARY KEY (ForumId)
+) CHARACTER SET utf8mb4;

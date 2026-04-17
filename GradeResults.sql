@@ -1,22 +1,20 @@
-CREATE TABLE IF NOT EXISTS `GradeResults` (
-  `GradeObjectId` int NOT NULL,
-  `OrgUnitId` int NOT NULL,
-  `UserId` int NOT NULL,
-  `PointsNumerator` decimal(19,9) DEFAULT NULL,
-  `PointsDenominator` decimal(19,9) DEFAULT NULL,
-  `WeightedNumerator` decimal(19,9) DEFAULT NULL,
-  `WeightedDenominator` decimal(19,9) DEFAULT NULL,
-  `IsReleased` tinyint DEFAULT NULL,
-  `IsDropped` tinyint DEFAULT NULL,
-  `LastModified` datetime DEFAULT NULL,
-  `LastModifiedBy` int DEFAULT NULL,
-  `Comments` varchar(1000) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `PrivateComments` varchar(1000) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `IsExempt` tinyint DEFAULT NULL,
-  `GradeText` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `GradeReleasedDate` datetime DEFAULT NULL,
-  `Version` bigint DEFAULT NULL,
-  UNIQUE KEY `GradeObjectId` (`GradeObjectId`,`OrgUnitId`,`UserId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-
+CREATE TABLE IF NOT EXISTS GradeResults (
+    GradeObjectId INT NOT NULL,
+    OrgUnitId INT NOT NULL,
+    UserId INT NOT NULL,
+    PointsNumerator DECIMAL(19, 9),
+    PointsDenominator DECIMAL(19, 9),
+    WeightedNumerator DECIMAL(19, 9),
+    WeightedDenominator DECIMAL(19, 9),
+    IsReleased TINYINT(1),
+    IsDropped TINYINT(1),
+    LastModified DATETIME,
+    LastModifiedBy INT,
+    Comments VARCHAR(1000),
+    PrivateComments VARCHAR(1000),
+    GradeText VARCHAR(50),
+    GradeReleasedDate DATETIME,
+    Version BIGINT,
+    IsDeleted TINYINT(1),
+    PRIMARY KEY (GradeObjectId, OrgUnitId, UserId)
+) CHARACTER SET utf8mb4;

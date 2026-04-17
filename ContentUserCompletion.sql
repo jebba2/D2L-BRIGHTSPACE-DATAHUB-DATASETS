@@ -1,8 +1,13 @@
-CREATE TABLE IF NOT EXISTS `ContentUserCompletion` (
-  `ContentObjectId` int NOT NULL,
-  `OrgUnitId` int DEFAULT NULL,
-  `UserId` int NOT NULL,
-  `DateCompleted` datetime DEFAULT NULL,
-  `LastModified` datetime DEFAULT NULL,
-  UNIQUE KEY `ContentObjectId` (`ContentObjectId`,`UserId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE IF NOT EXISTS ContentUserCompletion (
+    ContentObjectId INT NOT NULL,
+    OrgUnitId INT NOT NULL,
+    UserId INT NOT NULL,
+    DateCompleted DATETIME,
+    LastModified DATETIME,
+    Version BIGINT,
+    LastModifiedBy INT,
+    IsDeleted TINYINT(1),
+    AutomaticDateCompleted DATETIME,
+    ManualDateCompleted DATETIME,
+    PRIMARY KEY (ContentObjectId, UserId)
+) CHARACTER SET utf8mb4;

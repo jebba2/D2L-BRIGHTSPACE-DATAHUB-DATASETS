@@ -1,8 +1,7 @@
-CREATE TABLE IF NOT EXISTS `CoursePublisherRecipients` (
-  `RecipientID` varchar(36) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Name` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `CreatedAt` datetime DEFAULT NULL,
-  `LastModified` datetime DEFAULT NULL,
-  UNIQUE KEY `RecipientID` (`RecipientID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
+CREATE TABLE IF NOT EXISTS CoursePublisherRecipients (
+    RecipientId VARCHAR(36) NOT NULL,
+    Name VARCHAR(256),
+    CreatedAt DATETIME,
+    LastModified DATETIME,
+    PRIMARY KEY (RecipientId)
+) CHARACTER SET utf8mb4;

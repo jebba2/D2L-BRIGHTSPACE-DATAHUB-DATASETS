@@ -1,13 +1,13 @@
-CREATE TABLE IF NOT EXISTS `IntelligentAgentRunLog` (
-  `AgentId` bigint DEFAULT NULL,
-  `AgentRunId` bigint NOT NULL,
-  `IsPracticeRun` tinyint DEFAULT NULL,
-  `IsRunNow` tinyint DEFAULT NULL,
-  `NumUsers` int DEFAULT NULL,
-  `NumUsersWithErrors` int DEFAULT NULL,
-  `NumUsersWithInfos` int DEFAULT NULL,
-  `NumUsersWithWarnings` int DEFAULT NULL,
-  `RunUserId` int DEFAULT NULL,
-  `RunDate` datetime DEFAULT NULL,
-  UNIQUE KEY `AgentRunId` (`AgentRunId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE IF NOT EXISTS IntelligentAgentRunLog (
+    AgentRunId BIGINT NOT NULL,
+    AgentId BIGINT NOT NULL,
+    IsPracticeRun TINYINT(1),
+    IsRunNow TINYINT(1),
+    NumUsers INT,
+    NumUsersWithErrors INT,
+    NumUsersWithInfos INT,
+    NumUsersWithWarnings INT,
+    RunUserId INT COMMENT '0 for system',
+    RunDate DATETIME NOT NULL,
+    PRIMARY KEY (AgentRunId)
+) CHARACTER SET utf8mb4;

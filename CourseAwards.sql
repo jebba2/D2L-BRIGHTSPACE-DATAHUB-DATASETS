@@ -1,14 +1,13 @@
-CREATE TABLE IF NOT EXISTS `CourseAwards` (
-  `AssociationId` bigint NOT NULL,
-  `AwardId` bigint DEFAULT NULL,
-  `OrgUnitId` bigint DEFAULT NULL,
-  `DateCreated` datetime DEFAULT NULL,
-  `HiddenAward` tinyint DEFAULT NULL,
-  `ConditionSetId` bigint DEFAULT NULL,
-  `LastModified` datetime DEFAULT NULL,
-  `Credits` decimal(9,2) DEFAULT NULL,
-  `IsAssociated` tinyint DEFAULT NULL,
-  `Version` bigint DEFAULT NULL,
-  UNIQUE KEY `AssociationId` (`AssociationId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
+CREATE TABLE IF NOT EXISTS CourseAwards (
+    AssociationId BIGINT NOT NULL,
+    AwardId BIGINT NOT NULL,
+    OrgUnitId BIGINT NOT NULL,
+    DateCreated DATETIME,
+    HiddenAward TINYINT(1),
+    ConditionSetId BIGINT,
+    LastModified DATETIME,
+    Credits DECIMAL(9, 2),
+    IsAssociated TINYINT(1),
+    Version BIGINT,
+    PRIMARY KEY (AssociationId)
+) CHARACTER SET utf8mb4;
